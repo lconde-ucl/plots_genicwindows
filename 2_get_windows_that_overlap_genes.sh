@@ -37,11 +37,11 @@ for file in bedgraphs_nopseudo_hs/*hs.inputnormalised.bg bedgraphs_hs/*hs.inputn
 	output="$(basename $file .merged.mapped.${species}.inputnormalised.bg).100bp.genic.bg"
 
 	#- make windows (add a name to the windows or bigWigA verageOverBed complains)
-#	/share/apps/bedtools2-2.30.0/bin/bedtools makewindows -b $file -w 100 > bedgraphs${dir}_${species}/$output1
-#	awk -F'\t' '{print $0"\t"$1":"$2"-"$3}' bedgraphs${dir}_${species}/$output1 > bedgraphs${dir}_${species}/$output1b
+	/share/apps/bedtools2-2.30.0/bin/bedtools makewindows -b $file -w 100 > bedgraphs${dir}_${species}/$output1
+	awk -F'\t' '{print $0"\t"$1":"$2"-"$3}' bedgraphs${dir}_${species}/$output1 > bedgraphs${dir}_${species}/$output1b
 
 	#- convert bedgraph to bigwig
-#	bedGraphToBigWig $file $chromsizes bedgraphs${dir}_${species}/$output2
+	bedGraphToBigWig $file $chromsizes bedgraphs${dir}_${species}/$output2
 
 	#- get average signal over bed
 	echo "bigWigAverageOverBed bedgraphs${dir}_${species}/$output2 bedgraphs${dir}_${species}/$output1b bedgraphs${dir}_${species}/$output3b -bedOut=bedgraphs${dir}_${species}/$output3"
@@ -54,7 +54,7 @@ for file in bedgraphs_nopseudo_hs/*hs.inputnormalised.bg bedgraphs_hs/*hs.inputn
 	/share/apps/bedtools2-2.30.0/bin/bedtools intersect -a bedgraphs${dir}_${species}/$output3 -b $canonical -wa > bedgraphs${dir}_${species}/$output
 
 	#- remove intermediate files
-#	rm -rf bedgraphs${dir}_${species}/$output1 bedgraphs${dir}_${species}/$output1b bedgraphs${dir}_${species}/$output2 bedgraphs${dir}_${species}/$output3 bedgraphs${dir}_${species}/$output3b
+	rm -rf bedgraphs${dir}_${species}/$output1 bedgraphs${dir}_${species}/$output1b bedgraphs${dir}_${species}/$output2 bedgraphs${dir}_${species}/$output3 bedgraphs${dir}_${species}/$output3b
 
 done
 
@@ -86,11 +86,11 @@ for file in bedgraphs_nopseudo_mm/*mm.inputnormalised.bg bedgraphs_mm/*mm.inputn
 	output="$(basename $file .merged.mapped.${species}.inputnormalised.bg).100bp.genic.bg"
 
 	#- make windows (add a name to the windows or bigWigA verageOverBed complains)
-#	/share/apps/bedtools2-2.30.0/bin/bedtools makewindows -b $file -w 100 > bedgraphs${dir}_${species}/$output1
-#	awk -F'\t' '{print $0"\t"$1":"$2"-"$3}' bedgraphs${dir}_${species}/$output1 > bedgraphs${dir}_${species}/$output1b
+	/share/apps/bedtools2-2.30.0/bin/bedtools makewindows -b $file -w 100 > bedgraphs${dir}_${species}/$output1
+	awk -F'\t' '{print $0"\t"$1":"$2"-"$3}' bedgraphs${dir}_${species}/$output1 > bedgraphs${dir}_${species}/$output1b
 
 	#- convert bedgraph to bigwig
-#	bedGraphToBigWig $file $chromsizes bedgraphs${dir}_${species}/$output2
+	bedGraphToBigWig $file $chromsizes bedgraphs${dir}_${species}/$output2
 
 	#- get average signal over bed
 	echo "bigWigAverageOverBed bedgraphs${dir}_${species}/$output2 bedgraphs${dir}_${species}/$output1b bedgraphs${dir}_${species}/$output3b -bedOut=bedgraphs${dir}_${species}/$output3"
@@ -103,7 +103,7 @@ for file in bedgraphs_nopseudo_mm/*mm.inputnormalised.bg bedgraphs_mm/*mm.inputn
 	/share/apps/bedtools2-2.30.0/bin/bedtools intersect -a bedgraphs${dir}_${species}/$output3 -b $canonical -wa > bedgraphs${dir}_${species}/$output
 
 	#- remove intermediate files
-#	rm -rf bedgraphs${dir}_${species}/$output1 bedgraphs${dir}_${species}/$output1b bedgraphs${dir}_${species}/$output2 bedgraphs${dir}_${species}/$output3 bedgraphs${dir}_${species}/$output3b
+	rm -rf bedgraphs${dir}_${species}/$output1 bedgraphs${dir}_${species}/$output1b bedgraphs${dir}_${species}/$output2 bedgraphs${dir}_${species}/$output3 bedgraphs${dir}_${species}/$output3b
 
 done
 
